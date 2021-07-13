@@ -1,0 +1,44 @@
+body {
+    background-image: url(../img/pattern.jpg);
+}
+
+header {
+    background-color: white;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    padding-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    text-align: center;
+}
+
+#article-list {
+    border-bottom: black;
+    padding: 5px 10px 5px 10 px;
+    border-bottom: black;
+}
