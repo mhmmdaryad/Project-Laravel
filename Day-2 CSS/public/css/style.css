@@ -3,6 +3,9 @@ body {
 }
 
 header {
+    top: 0px;
+    left: 0px;
+    right: 0px;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -34,17 +37,17 @@ section {
     background-color: white;
     padding: 20px;
     text-align: justify;
-    margin: 10px auto;
-    margin-top: 10px;
+    margin-top: 70px;
     padding: 20px;
 }
 
 article {
     border-bottom-style: solid;
+    margin-top: 50px;
 }
 
 footer {
-    background-color: black;
+    background-color: #003366;
 }
 
 h5 {
