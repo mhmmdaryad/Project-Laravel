@@ -6,12 +6,15 @@ ul li {
     list-style-type: none;
 }
 
-#navitem {
-    border-bottom-style: solid;
-    border-width: 1px;
+a.nav-link {
+    color: black;
 }
 
-#navitem:hover {
+.nav-item:hover {
     background-color: slategrey;
+    color: white;
+}
+
+a.nav-link:hover {
     color: white;
 }
