@@ -1,5 +1,17 @@
-ul li {}
+#header {
+    background-color: black;
+}
 
-.upcomingfestivals {
-    flex-basis: 42%;
+ul li {
+    list-style-type: none;
+}
+
+#navitem {
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+#navitem:hover {
+    background-color: slategrey;
+    color: white;
 }
