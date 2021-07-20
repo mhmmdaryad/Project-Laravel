@@ -23,7 +23,21 @@
 
         $first_sentence = "Hello PHP!" ; // Panjang string 10, jumlah kata: 2
         $second_sentence = "I'm ready for the challenges"; // Panjang string: 28,  jumlah kata: 5
+
+        $long_first = strlen($first_sentence);
+        $wordCount_first = str_word_count($first_sentence);
         
+        echo "<h5>$first_sentence</h5>";
+        echo "Panjang String : $long_first<br>";
+        echo"Jumlah Kata : $wordCount_first";
+
+        $long_second = strlen($second_sentence);
+        $wordCount_second = str_word_count($second_sentence);
+        
+        echo "<h5>$second_sentence</h5>";
+        echo "Panjang String : $long_second<br>";
+        echo"Jumlah Kata : $wordCount_second";
+
         echo "<h3> Soal No 2</h3>";
         /* 
             SOAL NO 2
@@ -36,8 +50,8 @@
         echo "<label>String: </label> \"$string2\" <br>";
         echo "Kata pertama: " . substr($string2, 0, 1) . "<br>" ; 
         // Lanjutkan di bawah ini
-        echo "Kata kedua: " ;
-        echo "<br> Kata Ketiga: " ;
+        echo "Kata kedua: " . substr($string2, 2, 4);
+        echo "<br> Kata Ketiga: " . substr($string2, 7, 3) . "<br>" ;
 
         echo "<h3> Soal No 3 </h3>";
         /*
@@ -45,7 +59,8 @@
             Mengubah karakter atau kata yang ada di dalam sebuah string.
         */
         $string3 = "PHP is old but sexy!";
-        echo "String: \"$string3\" "; 
+        echo "String: \"$string3\" <br>"; 
+        echo "New String :  \"" . str_replace("sexy","awesome",$string3). "\" " ;
         // OUTPUT : "PHP is old but awesome"
 
     ?>
