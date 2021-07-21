@@ -41,8 +41,15 @@
             4 - I Love PHP
             2 - I Love PHP
         */
-        // Lakukan Looping Di Sini
-
+        
+        echo "LOOPING PERTAMA<br>";
+        for ($i=2 ; $i<=21; $i+=2){
+            echo $i . " - I Love PHP <br>";   
+        }
+        echo "LOOPING KEDUA<br>";
+        for ($i=20 ; $i>=2; $i-=2){
+            echo $i . " - I Love PHP <br>";   
+        }
 
         echo "<h3>Soal No 2 Looping Array Modulo </h3>";
         /* 
@@ -55,7 +62,11 @@
         $numbers = [18, 45, 29, 61, 47, 34];
         echo "array numbers: ";
         print_r($numbers);
-        // Lakukan Looping di sini
+        echo "<br>";
+        foreach($numbers as $num){
+            $rest[]= $num%5;
+        }
+        print_r($rest);
 
         echo "<br>";
         echo "Array sisa baginya adalah:  "; 
@@ -81,8 +92,21 @@
             ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih pinter', 'genius.jpeg'],
             ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai kucing', 'jerry.jpeg']
         ];
-        
+
         // Output: 
+        foreach($items as $key => $val){
+            $items = array(
+                'id'=> $val[0],
+                'name'=> $val[1],
+                'price'=> $val[2],
+                'description'=> $val[3],
+                'source'=> $val[4],
+            );
+            print_r($items);
+            echo "<br>";
+        }
+       
+
         
         echo "<h3>Soal No 4 Asterix </h3>";
         /* 
@@ -98,6 +122,14 @@
         */
         echo "Asterix: ";
         echo "<br>";        
+
+        for($j=5;$j>=1;$j--){
+            for ($k=$j;$k<=5;$k++){
+                echo"* ";
+                
+            }
+            echo "<br>";
+        }
     ?>
 
 </body>
