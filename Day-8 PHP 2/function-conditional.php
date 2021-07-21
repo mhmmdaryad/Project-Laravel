@@ -49,7 +49,7 @@ Output: ludba
 
 function reverse($kata) {
     $lenght=strlen($kata);
-    $tampung=" ";
+    $tampung="";
     for ($i=($lenght-1);$i>=0;$i--){
         $tampung.=$kata[$i];
     }
@@ -86,11 +86,22 @@ NB: DILARANG menggunakan built-in function PHP seperti strrev() dll. Gunakan loo
 
 // Code function di sini
 
+
+function palindrome($key){
+    $result=reverse($key);
+
+    if ($key===$result){
+        echo "true<br>";
+    }else{
+        echo "false<br>";
+    }
+   }
+
 // Hapus komentar di bawah ini untuk jalankan code
-// palindrome("civic") ; // true
-// palindrome("nababan") ; // true
-// palindrome("jambaban"); // false
-// palindrome("racecar"); // true
+palindrome("civic") ; // true
+palindrome("nababan") ; // true
+palindrome("jambaban"); // false
+palindrome("racecar"); // true
 
 
 echo "<h3>Soal No 4 Tentukan Nilai </h3>";
@@ -104,11 +115,23 @@ sama dengan 60 dan lebih kecil dari 70 maka akan mereturn string “Cukup” sel
 
 // Code function di sini
 
+function tentukan_nilai($nilai){
+    $hasil="";
+    if($nilai>=85 && $nilai<=100){
+        $hasil.="Sangat Baik";
+    }else if($nilai>=70 && $nilai<85){
+        $hasil.="Baik";
+    }else if($nilai>=60 && $nilai<70){
+        $hasil.="Cukup";
+    }else if($nilai<60){
+        $hasil.="Kurang";
+    }return $hasil."<br>";
+}
 // Hapus komentar di bawah ini untuk jalankan code
-// echo tentukan_nilai(98); //Sangat Baik
-// echo tentukan_nilai(76); //Baik
-// echo tentukan_nilai(67); //Cukup
-// echo tentukan_nilai(43); //Kurang
+echo tentukan_nilai(98); //Sangat Baik
+echo tentukan_nilai(76); //Baik
+echo tentukan_nilai(67); //Cukup
+echo tentukan_nilai(43); //Kurang
 
 
 ?>
