@@ -15,4 +15,4 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/register', 'AuthController@register');
-Route::post('/send', 'AuthController@register');
+Route::post('/send', 'AuthController@send');
