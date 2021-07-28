@@ -20,3 +20,11 @@ Route::post('/send', 'AuthController@send');
 Route::get('/master', function () {
     return view('halaman.master');
 });
+
+Route::get('/data-table', function () {
+    return view('halaman.datatable');
+});
+
+Route::get('/table', function () {
+    return view('halaman.table');
+});
