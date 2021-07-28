@@ -1,7 +1,7 @@
 @extends('halaman.master')
 
 @section('title')
-Test
+Dashboard
 @endsection
 
 @section('content')
