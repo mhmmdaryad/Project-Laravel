@@ -20,7 +20,6 @@ class CreateProfileTable extends Migration
             $table->longText('alamat');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
         });
     }
 

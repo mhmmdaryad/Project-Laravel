@@ -18,7 +18,6 @@ class CreateCastTable extends Migration
             $table->string('nama');
             $table->integer('umur');
             $table->longText('bio');
-            $table->timestamps();
         });
     }
 
