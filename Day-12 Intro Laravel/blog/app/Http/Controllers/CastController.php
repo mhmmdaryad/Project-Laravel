@@ -28,7 +28,7 @@ class CastController extends Controller
             "umur" => $request["age"],
             "bio" => $request["bio"]
         ]);
-        return redirect('/cast-create');
+        return redirect('/cast/create');
     }
 
     public function show($id){

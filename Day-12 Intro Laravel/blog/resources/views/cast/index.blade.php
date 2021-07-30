@@ -5,7 +5,7 @@ List Cast
 @endsection
 
 @section('content')
-<a href="/cast-create" class="btn btn-primary">Tambah</a>
+<a href="/cast/create" class="btn btn-primary">Tambah</a>
         <table class="table">
             <thead class="thead-light">
               <tr>
