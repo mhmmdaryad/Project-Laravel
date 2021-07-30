@@ -28,3 +28,9 @@ Route::get('/data-table', function () {
 Route::get('/table', function () {
     return view('halaman.table');
 });
+
+
+Route::get('/cast/create', 'CastController@create');
+Route::get('/cast', 'CastController@create');
+
+Route::post('/cast', 'CastController@store');
