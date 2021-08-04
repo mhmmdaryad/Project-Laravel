@@ -15,7 +15,13 @@ List Film
             <div class="card-body">
                 <h5 class="card-title">{{$item->judul}} ({{$item->tahun}})</h5>
                 <p class="card-text">{{Illuminate\Support\Str::limit($item->ringkasan,200)}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form action="/film/{{$item->id}}" method="POST">
+                    <a href="/film/{{$item->id}}" class="btn btn-info">Show</a>
+                    <a href="/film/{{$item->id}}/edit" class="btn btn-primary">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" class="btn btn-danger my-1" value="Delete">
+                 </form>
             </div>
         </div>
     </div>

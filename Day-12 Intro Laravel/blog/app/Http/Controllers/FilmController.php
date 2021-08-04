@@ -8,6 +8,7 @@ use App\Film;
 use App\cast;
 use App\Genre;
 use DB;
+use File;
 
 class FilmController extends Controller
 {
@@ -84,7 +85,9 @@ class FilmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $film = Film::findorfail($id);
+        $genre= Genre::all();
+        return view('film.edit',compact('genre','film'));
     }
 
     /**
@@ -96,7 +99,39 @@ class FilmController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'ringkasan' => 'required',
+            'tahun' => 'required',
+            'genre_id' => 'required',
+            'poster' => 'mimes:jpeg,jpg,png|max:2200',
+        ]);
+
+        $film = Film::findorfail($id);
+
+        if ($request->has('poster')){
+            $path="uploads/film";
+            File::delete($path.$film->poster);
+            $poster=$request->poster;
+            $new_poster = time() . ' - ' . $poster->getClientOriginalName();
+            $poster->move('uploads/film/', $new_poster);
+            $film_data= [
+            'judul' => $request->judul,
+            'ringkasan' => $request->ringkasan,
+            'tahun' => $request->tahun,
+            'genre_id' => $request->genre_id,
+            'poster' => $new_poster,
+            ];
+        }else{
+            $film_data= [
+                'judul' => $request->judul,
+                'ringkasan' => $request->ringkasan,
+                'tahun' => $request->tahun,
+                'genre_id' => $request->genre_id,
+            ];
+        }
+        $film->update($film_data);
+        return redirect('/film/create'); 
     }
 
     /**
