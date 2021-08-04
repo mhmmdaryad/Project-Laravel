@@ -32,7 +32,9 @@ Route::get('/table', function () {
 Route::get('/cast', 'CastController@index');
 Route::get('/cast/create', 'CastController@create');
 Route::post('/cast', 'CastController@store');
-Route::get('/cast/{cast_id}','CastController@show');
-Route::get('/cast/{cast_id}/edit','CastController@edit');
-Route::put('/cast/{cast_id}','CastController@update');
-Route::delete('/cast/{cast_id}','CastController@destroy');
+Route::get('/cast/{cast_id}', 'CastController@show');
+Route::get('/cast/{cast_id}/edit', 'CastController@edit');
+Route::put('/cast/{cast_id}', 'CastController@update');
+Route::delete('/cast/{cast_id}', 'CastController@destroy');
+
+Route::resource('film', 'FilmController');

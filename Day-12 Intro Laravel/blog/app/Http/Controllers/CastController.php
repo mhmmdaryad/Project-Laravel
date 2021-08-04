@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\cast;
 
 class CastController extends Controller
 {
-    public function index(){
-        $casts=DB::table('cast')->get();
-        return view('cast.index',compact('casts'));
+    public function index()
+    {
+        $casts = cast::all();
+        // $casts=DB::table('cast')->get();
+        // return view('cast.index', compact('casts'));
+        dd($casts);
     }
     public function create()
     {
@@ -31,14 +35,16 @@ class CastController extends Controller
         return redirect('/cast/create');
     }
 
-    public function show($id){
-        $casts=DB::table('cast')->where('id', $id)->first();
-        return view('cast.show',compact('casts'));
+    public function show($id)
+    {
+        $casts = DB::table('cast')->where('id', $id)->first();
+        return view('cast.show', compact('casts'));
     }
 
-    public function edit($id){
-        $casts=DB::table('cast')->where('id', $id)->first();
-        return view('cast.edit',compact('casts'));
+    public function edit($id)
+    {
+        $casts = DB::table('cast')->where('id', $id)->first();
+        return view('cast.edit', compact('casts'));
     }
 
     public function update(Request $request, $id)
@@ -48,7 +54,7 @@ class CastController extends Controller
             'age' => 'required',
             'bio' => 'required',
         ]);
-        $query = DB::table('cast')->where('id',$id)->update([
+        $query = DB::table('cast')->where('id', $id)->update([
             "nama" => $request["name"],
             "umur" => $request["age"],
             "bio" => $request["bio"]
@@ -56,8 +62,9 @@ class CastController extends Controller
         return redirect('/cast');
     }
 
-    public function destroy($id){
-        $query = DB::table('cast')->where('id',$id)->delete();
+    public function destroy($id)
+    {
+        $query = DB::table('cast')->where('id', $id)->delete();
         return redirect('/cast');
     }
 }
