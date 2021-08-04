@@ -11,9 +11,8 @@ class CastController extends Controller
     public function index()
     {
         $casts = cast::all();
-        // $casts=DB::table('cast')->get();
-        // return view('cast.index', compact('casts'));
-        dd($casts);
+        // $casts = DB::table('cast')->get();
+        return view('cast.index', compact('casts'));
     }
     public function create()
     {

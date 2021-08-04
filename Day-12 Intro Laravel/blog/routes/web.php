@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\GenreController;
 
 Route::get('/', 'HomeController@index');
 
@@ -38,3 +39,5 @@ Route::put('/cast/{cast_id}', 'CastController@update');
 Route::delete('/cast/{cast_id}', 'CastController@destroy');
 
 Route::resource('film', 'FilmController');
+
+Route::resource('genre', 'GenreController');
