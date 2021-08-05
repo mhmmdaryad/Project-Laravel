@@ -19,7 +19,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        $film = DB::table('film')->get();
+        $film = Film::all();
         return view('film.index', compact('film'));
     }
 
@@ -63,7 +63,7 @@ class FilmController extends Controller
             'poster' => $new_poster,
         ]);
         $poster->move('uploads/film/', $new_poster);
-        return redirect('/film/create');
+        return redirect('/film');
     }
 
     /**
@@ -74,7 +74,9 @@ class FilmController extends Controller
      */
     public function show($id)
     {
-        //
+        $film = Film::findorfail($id);
+       
+        return view('film.show', compact('film'));
     }
 
     /**
@@ -142,6 +144,12 @@ class FilmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $film= Film::findorfail($id);
+        $film->delete();
+
+        $path = "uploads/film/";
+        File::delete($path.$film->poster);
+
+        return redirect()->route('film.index');
     }
 }
