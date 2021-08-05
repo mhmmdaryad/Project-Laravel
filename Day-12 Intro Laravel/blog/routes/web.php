@@ -15,6 +15,9 @@ use App\Http\Controllers\GenreController;
 
 Route::get('/', 'HomeController@index');
 
+Route::group(['middleware' => ['auth']], function () {
+    //
+
 Route::get('/register', 'AuthController@register');
 Route::post('/send', 'AuthController@send');
 
@@ -37,15 +40,14 @@ Route::get('/cast/{cast_id}', 'CastController@show');
 Route::get('/cast/{cast_id}/edit', 'CastController@edit');
 Route::put('/cast/{cast_id}', 'CastController@update');
 Route::delete('/cast/{cast_id}', 'CastController@destroy');
-
-Route::resource('film', 'FilmController');
-
 Route::resource('genre', 'GenreController');
 
+});
+Route::resource('film', 'FilmController');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

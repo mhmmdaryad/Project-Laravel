@@ -13,7 +13,12 @@
                 <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                @auth 
+                <a href="#" class="d-block">{{ Auth::user()->username }}</a>
+                @endauth
+                @guest
+                <a href="/login" class="d-block bg-success">LOGIN</a>
+                @endguest
             </div>
         </div>
 
@@ -33,7 +38,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-                <li class="nav-item menu-open">
+                <li class="nav-item">
                     <a href="/" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -41,6 +46,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/film" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Film
+                        </p>
+                    </a>
+                </li>
+                @auth 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -64,7 +78,41 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="/genre" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Genre
+                        </p>
+                    </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/cast" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Cast
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a id="navbarDropdown" class="nav-link" href="#" role="button">
+                                
+                    </a> -->
+
+                    <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> -->
+                    <a class="nav-link bg-danger" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        <i class="far fa-circle nav-icon"></i>
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                            <!-- </div> -->
+                </li>    
+                @endauth             
             </ul>
         </nav>
     </div>
