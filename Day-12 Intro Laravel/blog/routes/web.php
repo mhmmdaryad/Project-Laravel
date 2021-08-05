@@ -41,3 +41,11 @@ Route::delete('/cast/{cast_id}', 'CastController@destroy');
 Route::resource('film', 'FilmController');
 
 Route::resource('genre', 'GenreController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
